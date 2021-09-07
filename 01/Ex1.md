@@ -6,6 +6,11 @@
 dotnet new mvc -n mydockerapp
 
 cd mydockerapp
+
+# Run the project
+dotnet run
+
+# Open the website in the browser
 ```
 
 ## Zbudowanie aplikacji w kontenerze
