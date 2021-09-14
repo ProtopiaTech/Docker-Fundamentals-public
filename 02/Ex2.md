@@ -1,11 +1,12 @@
 # Zapisanie ręcznych zmian w kontenerze jako nowy obraz.
 
-## Cel
+## Wprowadzenie zmian w kontenerze
+
 Wejdź do kontenera i stwórz tam katalog (komenda `mkdir`).
 
 Następnie wyjdź z kontenera i zamiesz zmiany jako nowy obraz.
 
-## Przydatne komenty
+### Przydatne komenty
 Przydatne komendy (parametry do sprawdzenia w dokumentacji albo w konsoli korzystają z flagi `-h`):
 - `docker ps`
 - `docker exec` - tu przydaje się flaga `it` - uruchamianie interaktywnie
@@ -14,3 +15,11 @@ Przydatne komendy (parametry do sprawdzenia w dokumentacji albo w konsoli korzys
 - `docker history`
 - `docker stop NAZWA_KONTENERA`
 - `docker rm NAZWA_KONTENERA`
+
+## Otagowanie obrazu
+
+Dodaj tag nowo stworzonemu obrazowi
+
+### Przydatne komendy:
+
+- `docker tag`
