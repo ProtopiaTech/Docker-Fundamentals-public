@@ -13,13 +13,25 @@ dotnet run
 # Open the website in the browser
 ```
 
-## Zbudowanie aplikacji w kontenerze
+## Będziemy chcieli przenieść poniższy proces do Dockerfile
 
-1. Stwórz plik `Dockerfile` w obecnym katalogu.
+```bash
+dotnet restore "mydockerapp.csproj"
+dotnet build "mydockerapp.csproj" -c Release -o /out
+dotnet publish "mydockerapp.csproj" -c Release -o /app
 
-Do tego zadania przydadzą Ci się dwa zesatwy poleceń:
+dotnet mydockerapp.dll
+```
 
-Polecenia pliku Dockerfile:
+# Kroki
+
+## Krok 1. Zbudowanie aplikacji w kontenerze
+
+Pierw stwórz plik `Dockerfile` w obecnym katalogu.
+
+Do tego zadania przydadzą Ci się dwa zestawy poleceń:
+
+### Polecenia pliku Dockerfile:
 - `FROM XXX` - określa warstwę z której korzystamy. Gdzie XXX jest docker image. Do budowania wykorzystamy obraz `mcr.microsoft.com/dotnet/sdk:5.0-buster-slim`
 - `COPY [ "local_source", "container_dest" ]` - kopiuje pliki lokalne do kontenera. Nawiasy są ważne
 - `WORKDIR` - określa katalog roboczy (polecenia będą wykonywane względem tego katalogu)
@@ -28,10 +40,9 @@ Polecenia pliku Dockerfile:
 Polecenia dotnet core: 
 - `dotnet restore "XXX.csproj"` - restore paczek dotnet core
 - `dotnet build "XXX.csproj" -c Release -o /YYY` - zbudownanie projektu
-
-Gdzie:
-- `XXX.csproj` - jest ścieżką do pliku csproj
-- `YYY` - jest katalogiem gdzie chcemy umieścić zbudowane artefakty
+    Legenda:
+    - `XXX.csproj` - jest ścieżką do pliku csproj
+    - `YYY` - jest katalogiem gdzie chcemy umieścić zbudowane artefakty
 
 Komendy w konsoli:
 
@@ -39,7 +50,7 @@ Komendy w konsoli:
 - `docker images` - wyświetla wszystkie obrazy w repozytorium
 - `docker images XXX` - wyświetla wszystkie obrazy o nazwie XXX
 
-# Publikacja aplikacji w kontenerze
+# Krok 2. Publikacja aplikacji w kontenerze
 
 Polecenia w Dockerfile:
 - `FROM source_image AS name` - dodanie AS po nazwie obrazu umożliwia posługiwanie się nazwą własną docker image.
@@ -47,7 +58,7 @@ Polecenia w Dockerfile:
 Polecenia dotnet core:
 - `dotnet publish "XXX.csproj" -c Release -o /app` - przygotowuje paczkę dotnet core gotową do publikacji 
 
-# Uruchomienie aplikacji w kontenerze
+# Krok 3. Uruchomienie aplikacji w kontenerze
 
 Stwórz kontener który skorzysta z opublikowanej paczki i uruchomi naszą aplikację dotnet core
 
