@@ -32,7 +32,7 @@ Pierw stwórz plik `Dockerfile` w obecnym katalogu.
 Do tego zadania przydadzą Ci się dwa zestawy poleceń:
 
 ### Polecenia pliku Dockerfile:
-- `FROM XXX` - określa warstwę z której korzystamy. Gdzie XXX jest docker image. Do budowania wykorzystamy obraz `mcr.microsoft.com/dotnet/sdk:5.0-buster-slim`
+- `FROM XXX` - określa warstwę z której korzystamy. Gdzie XXX jest docker image. Do budowania wykorzystamy obraz `mcr.microsoft.com/dotnet/sdk:6.0`
 - `COPY [ "local_source", "container_dest" ]` - kopiuje pliki lokalne do kontenera. Nawiasy są ważne
 - `WORKDIR` - określa katalog roboczy (polecenia będą wykonywane względem tego katalogu)
 - `RUN` - wykonuje polecenie w konsoli wewnątrz kontenera
