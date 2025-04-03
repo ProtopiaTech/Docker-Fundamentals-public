@@ -1,1 +1,4 @@
-mydockerapp/
+/01/mydockerapp/bin
+/01/mydockerapp/obj
+/01/mydockerapp/dockerfile
+/00/node_modules
